@@ -53,6 +53,9 @@ export class GRPCVisitor extends BaseVisitor {
   }
 
   visitRoleAfter(context: Context): void {
+    if (!shouldIncludeHandler(context)) {
+      return;
+    }
     this.write(`}\n\n`);
   }
 
